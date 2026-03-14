@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 5s ease-in-out infinite;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FAF9F6;
+  color: #1A2E35;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* ========== RTL Mobile Responsive Fixes ========== */
+
+/* Ensure all containers respect viewport width in RTL */
+[dir="rtl"] * {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Fix RTL text alignment and overflow on mobile */
+@media (max-width: 768px) {
+  [dir="rtl"] section {
+    overflow-x: hidden;
+  }
+
+  [dir="rtl"] .max-w-7xl,
+  [dir="rtl"] .max-w-5xl,
+  [dir="rtl"] .max-w-4xl {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Fix grid layouts that overflow on mobile RTL */
+  [dir="rtl"] .grid {
+    max-width: 100%;
+  }
+
+  /* Ensure text doesn't overflow containers */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  /* Fix About section image grid overflow */
+  [dir="rtl"] .grid-cols-2 {
+    gap: 12px;
+  }
+
+  /* Fix floating cards that go off-screen */
+  [dir="rtl"] .absolute {
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* Tablet RTL fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  [dir="rtl"] .max-w-7xl {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Arabic/RTL Font - Almarai */
+[dir="rtl"] body,
+[dir="rtl"] * {
+  font-family: 'Almarai', sans-serif !important;
+}
+
+/* Keep English fonts for specific elements when needed */
+[dir="rtl"] .font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}
+
+::selection {
+  background-color: #D2A23F;
+  color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.gold-glow {
+  filter: drop-shadow(0 0 15px rgba(210, 162, 63, 0.3));
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D2A23F 0%, #E5C29B 50%, #D2A23F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0ea5e9, #14b8a6);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0284c7, #0d9488);
+}
+
+/* Smooth transitions for language switching */
+* {
+  transition: margin 0.3s ease, padding 0.3s ease;
+}
+
+/* RTL fix: prevent any element from exceeding viewport */
+[dir="rtl"] .overflow-hidden {
+  overflow: hidden !important;
+}
+
+/* Fix RTL animation directions */
+[dir="rtl"] .reveal-left {
+  transform: translateX(40px);
+}
+
+[dir="rtl"] .reveal-right {
+  transform: translateX(-40px);
+}
+
+/* RTL support for select elements */
+[dir="rtl"] select {
+  background-position: left 0.5rem center;
+}
+
+[dir="ltr"] select {
+  background-position: right 0.5rem center;
+}
+
+/* Entry Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-right {
+  animation: fadeInRight 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up {
+  transform: translateY(40px);
+}
+
+.reveal-down {
+  transform: translateY(-40px);
+}
+
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal-scale {
+  transform: scale(0.95);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Delay Utilities */
+.delay-100 {
+  transition-delay: 100ms;
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  transition-delay: 700ms;
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  transition-delay: 1000ms;
+  animation-delay: 1000ms;
+}
+
+/* Advanced Floating Blobs */
+@keyframes blob-move {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.05);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.15) rotate(5deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
+  }
+}
+
+.animate-blob {
+  animation: blob-move 15s ease-in-out infinite;
+}
+
+/* Button Shimmer */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Floating animation for icons */
+@keyframes float-gentle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-icon {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Typewriter Animation */
+.typewriter-text {
+  overflow: hidden;
+  border-right: 3px solid #D2A23F;
+  white-space: normal;
+  display: inline-block;
+}
+
+@media (min-width: 640px) {
+  .typewriter-text {
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    max-width: fit-content;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #D2A23F
+  }
+}
+
+/* Swiper Customization */
+:root {
+  --swiper-theme-color: #D2A23F !important;
+  --swiper-navigation-size: 25px;
+}
+
+.services-swiper .swiper-button-next,
+.services-swiper .swiper-button-prev {
+  color: #D2A23F !important;
+  background-color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.services-swiper .swiper-button-next:after,
+.services-swiper .swiper-button-prev:after {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.services-swiper .swiper-button-next:hover,
+.services-swiper .swiper-button-prev:hover {
+  background-color: #D2A23F;
+  color: white !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(210, 162, 63, 0.3);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #D2A23F !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* Gallery Swiper - Fix huge height gap on mobile */
+@media (max-width: 639px) {
+  .gallery-swiper {
+    height: 320px !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .gallery-swiper .swiper-wrapper {
+    height: 280px !important;
+    align-items: center !important;
+  }
+
+  .gallery-swiper .swiper-pagination {
+    position: absolute !important;
+    bottom: -30px !important;
+    top: auto !important;
+    width: 100% !important;
+  }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+[dir="rtl"] .animate-marquee {
+  animation: marquee-rtl 30s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(50%);
+  }
+}
