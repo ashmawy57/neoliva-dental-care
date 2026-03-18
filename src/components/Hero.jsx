@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 const Counter = ({ end, duration = 2000, suffix = '' }) => {
     const [count, setCount] = useState(0);
@@ -71,6 +71,8 @@ const Typewriter = ({ text, highlightText, delay = 100 }) => {
         </span>
     );
 };
+
+
 
 const Hero = () => {
     const { t, i18n } = useTranslation();

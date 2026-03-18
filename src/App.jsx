@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import './i18n';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Lazy load pages and heavy components
@@ -79,6 +80,7 @@ function App() {
         </Suspense>
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

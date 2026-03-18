@@ -171,6 +171,8 @@ const About = () => {
                                             src="/doctor.png"
                                             alt="Dr. Roufaida Attia"
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
                                     <div className={isRTL ? 'text-right' : 'text-left'}>
@@ -251,6 +253,7 @@ const About = () => {
                                     muted
                                     loop
                                     playsInline
+                                    preload="none"
                                     poster="/neoliva-logo.png"
                                 >
                                     <source src="/neolivaclinic.mp4" type="video/mp4" />

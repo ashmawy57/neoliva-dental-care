@@ -35,13 +35,15 @@ const VideoSection = () => {
                             src="/logofoter.svg"
                             alt="Neoliva"
                             className="w-40 md:w-48 h-auto opacity-70 drop-shadow-lg"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </div>
 
                     <video
                         className="w-full h-full object-cover"
                         controls
-                        preload="metadata"
+                        preload="none"
                         poster="/neoliva-logo.png" // Fallback poster 
                     >
                         <source src="/neolivaevent.mp4" type="video/mp4" />

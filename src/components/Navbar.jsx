@@ -121,6 +121,9 @@ const Navbar = () => {
                                 src="/logo (1).svg"
                                 alt="Neoliva Dental Clinic"
                                 className="h-20 w-auto object-contain"
+                                decoding="async"
+                                width="120"
+                                height="80"
                             />
                         </Link>
 
@@ -216,6 +219,8 @@ const Navbar = () => {
                                 src="/logofoter.svg"
                                 alt="Neoliva"
                                 className="h-14 w-auto"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <button
                                 onClick={() => setIsMenuOpen(false)}

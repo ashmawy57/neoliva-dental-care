@@ -67,6 +67,8 @@ const Footer = () => {
                             src="/logofoter.svg"
                             alt="Neoliva Dental Care"
                             className="h-28 w-auto object-contain mx-auto md:mx-0"
+                            loading="lazy"
+                            decoding="async"
                         />
                         <p className={`text-gray-400 leading-relaxed ${isRTL ? 'font-tajawal' : 'font-inter'}`}>
                             {t('footer.about.description')}
